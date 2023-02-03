@@ -1,10 +1,18 @@
 function keyPress() {
-    alert("pressed!")
+    let chars = "qwertyuiopasd fghjklzxcvbnm123456789 0!\"£$%^& *()-_=+|\\`¬{}[];:'@#~ ,./<>?"
+    let termKeyWords = ["cat", "nano", "touch", "hack", "ls", "cd", "run", "python", "go", "mod", "main.py", ".txt", "new", "mkdir"]
     let o = document.getElementById("output")
-    let nl = Math.floor(Math.random() * 2)
-    if (nl == 1) {
-        o = o + "\n"
+    for (let i = 0; i < 10; i++) {
+      let nl = Math.floor(Math.random() * 101)
+      console.log(nl)
+      if (nl < 5) {
+        o.innerHTML += "<br />"
+      }
+      let n = Math.floor(Math.random() * termKeyWords.length)
+      o.innerHTML += termKeyWords[n] + " "
+      n = Math.floor(Math.random() * chars.length)
+      o.innerHTML += chars[n]
     }
-    let n = Math.floor(Math.random() * 128)
-    o = o + String.fromCharCode(n)
-}
+    // SCROLLING NOT WORKING
+    window.scrollTo(o.height - window.innerHeight, o.height - window.innerHeight)
+  }
